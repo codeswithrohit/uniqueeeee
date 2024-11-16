@@ -3,7 +3,14 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { totalAmount, selectedBills } = req.body;
+    const {
+      totalAmount,
+      selectedBills,
+      email,
+      customerNo,
+      transNumber,
+      mobileNo,
+    } = req.body;
 
     console.log(req.body);
 
@@ -54,7 +61,14 @@ export default async function handler(req, res) {
       order_date: dateAtom,
       currency: "356",
       ru: responseUrl.toString(),
-      additional_info: { additional_info1: "Test", additional_info2: "Test1" },
+      additional_info: {
+        additional_info1: selectedBills,
+        additional_info2: totalAmount,
+        additional_info3: email,
+        additional_info4: customerNo,
+        additional_info5: transNumber,
+        additional_info6: mobileNo,
+      },
       itemcode: "DIRECT",
       device: {
         init_channel: "internet",

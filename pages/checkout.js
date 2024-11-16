@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
@@ -28,6 +28,9 @@ const PaymentPage = () => {
           totalAmount: data.payableAmount,
           selectedBills: data.billNumber,
           email: data.email, 
+          customerNo : data.customerNo,
+          transNumber : data.transNumber,
+          mobileNo : data.mobileNo,
         }),
       });
 
@@ -67,6 +70,22 @@ const PaymentPage = () => {
       setError('Payment initiation failed');
     }
   };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const transactionData = Object.fromEntries(urlParams.entries());
+
+    fetch("/api/billdesk-response", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(transactionData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Response sent successfully:", data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
 
   
   const fetchData = async (e) => {
@@ -192,7 +211,7 @@ const PaymentPage = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto">
           <div className="relative w-full max-w-3xl p-4">
             <Transition.Child
-              as={Fragment}
+              as={n}
               enter="ease-out duration-300"
               enterFrom="opacity-0 scale-95"
               enterTo="opacity-100 scale-100"
