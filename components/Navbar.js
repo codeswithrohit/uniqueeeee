@@ -1,73 +1,55 @@
-import { useState } from 'react'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';  // For the Cart icon
 
-export default () => {
-  const [state, setState] = useState(false);
-  const router = useRouter();
-
-  const navigation = [
-    { title: "Home", path: "/" },
-    { title: "Products", path: "/products" },
-    { title: "Reticulated Payment", path: "/checkout" },
-    { title: "About Us", path: "/aboutus" },
-    { title: "Contact Us", path: "/contactus" }
-  ];
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);  // State to manage mobile menu
 
   return (
-    <nav className="bg-white shadow-md w-full border-b md:border-0 md:static">
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-        <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <Link href="/" className="flex-shrink-0">
-            {/* Ensure the logo maintains its aspect ratio */}
-            <img
-              src='unique.png'
-              alt="logo"
-              className="w-48 h-16 object-contain" // Ensures the image fits within the container without stretching
-            />
-          </Link>
-          <div className="md:hidden">
-            <button
-              aria-label="Toggle navigation"
-              className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
-              onClick={() => setState(!state)}
-            >
-              {state ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
-                </svg>
-              )}
-            </button>
-          </div>
+    <div className="bg-white text-white p-4">
+      <div className="flex items-center justify-between">
+        {/* Logo */}
+        <img src="https://www.uniquepipedgas.com/unique.png" alt="Logo" className="h-20 w-64" />
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-6">
+          <a href="/" className="hover:text-blue-800 text-gray-800 hover:font-bold">Home</a>
+          <a href="/products" className="hover:text-blue-800 text-gray-800 hover:font-bold">Products</a>
+          <a href="/checkout" className="hover:text-blue-800 text-gray-800 hover:font-bold">Reticulated Payments</a>
+          <a href="/aboutus" className="hover:text-blue-800 text-gray-800 hover:font-bold">About Us</a>
+          <a href="/contactus" className="hover:text-blue-800 text-gray-800 hover:font-bold">Contact Us</a>
         </div>
-        <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 transition-all duration-500 ease-in-out ${state ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-x-6 md:space-y-0">
-            {navigation.map((item, idx) => {
-              const isActive = router.pathname === item.path;
-              return (
-                <li key={idx} className={` hover:text-blue-900 hover:font-bold  ${isActive ? 'text-blue-900   font-bold px-2 py-1 rounded-md' : 'text-blue-900   px-2 py-1 rounded-md'}`}>
-                  <Link href={item.path}>
-                    {item.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="hidden md:inline-block">
-            <a href="/Cart" className="py-2 px-4  text-white bg-gray-600 hover:bg-indigo-700 rounded-md shadow-lg transition-transform duration-300 transform hover:scale-105 hover:font-bold">
-         Cart
-            </a>
+
+        {/* Cart Icon with margin-right */}
+        <div className="relative flex flex-row gap-8 mr-2"> {/* Added margin-right here */}
+          <a href="/Cart">
+          <FaShoppingCart className="text-2xl hover:text-blue-800 text-gray-800 hover:font-bold cursor-pointer" />
+          {/* Cart badge (optional) */}
+          {/* <span className="absolute top-0 right-0 text-xs bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">3</span> */}
+      
+      </a>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-2xl hover:text-blue-800 text-gray-800 hover:font-bold" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? '×' : '☰'}
+        </button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mt-4 space-y-4">
+          <a href="/" className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">Home</a>
+          <a href="/products" className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">Products</a>
+          <a href="/checkout" className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">Reticulated Payments</a>
+          <a href="/aboutus" className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">About Us</a>
+          <a href="/contactus" className="block py-2 px-4 bg-gray-700 rounded hover:bg-gray-600">Contact Us</a>
+        </div>
+      )}
+    </div>
   );
-}
+};
+
+export default Navbar;

@@ -3,9 +3,9 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'; // Importing React I
 
 const Hero8 = () => {
   const images = [
-    'banner1.jpg',
-    'banner2.jpg',
-    'banner3.jpg'
+    'slider1.jpg',
+    'slider2.jpg',
+    'slider3.jpg'
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -182,7 +182,8 @@ const Hero8 = () => {
 
               <div className="mt-2">
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Installation By Expertize</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">Our installation team comprises experienced professionals who are experts in their field</span>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">Our installation team comprises experienced professionals who are experts in their field.
+                </span>
               </div>
             </div>
 
@@ -191,42 +192,43 @@ const Hero8 = () => {
 
               <div className="mt-2">
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Maximum Power</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">Get Unlimited Energy of passages of Lerem ipsum available</span>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">The highest level of power that a device or system can generate under normal conditions.</span>
               </div>
             </div>
 
-            <div className="w-full max-w-xs text-center">
+            {/* <div className="w-full max-w-xs text-center">
               <img className="object-cover object-center  mx-auto rounded-lg" src="https://themes.webdevia.com/petroleum-gas/wp-content/uploads/2016/01/icon71.jpg" alt="avatar" />
 
               <div className="mt-2">
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Oil Resources</h3>
                 <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
               </div>
-            </div>
+            </div> */}
 
             <div className="w-full max-w-xs text-center">
               <img className="object-cover object-center  mx-auto rounded-lg" src="https://themes.webdevia.com/petroleum-gas/wp-content/uploads/2016/01/icon61.jpg" alt="avatar" />
 
               <div className="mt-2">
-                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Continues Development</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Continuous Development</h3>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">Expansion of pipeline infrastructure is a continuous effort based on gas demand assessment of various regions</span>
               </div>
             </div>
-            <div className="w-full max-w-xs text-center">
+            {/* <div className="w-full max-w-xs text-center">
               <img className="object-cover object-center  mx-auto rounded-lg" src="https://themes.webdevia.com/petroleum-gas/wp-content/uploads/2016/01/icon51.jpg" alt="avatar" />
 
               <div className="mt-2">
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">Chimical Analysis</h3>
                 <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
               </div>
-            </div>
+            </div> */}
 
             <div className="w-full max-w-xs text-center">
               <img className="object-cover object-center  mx-auto rounded-lg" src="https://themes.webdevia.com/petroleum-gas/wp-content/uploads/2016/01/icon41.jpg" alt="avatar" />
 
               <div className="mt-2">
-                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">We Fight Polution</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">We Fight Pollution</h3>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">We are helping to reduce the pollution.
+                </span>
               </div>
             </div>
 
@@ -235,7 +237,8 @@ const Hero8 = () => {
 
               <div className="mt-2">
                 <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">We Think About The Consumer</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">Wr think about the consumer safety (Zero compromise towards safety).
+                </span>
               </div>
             </div>
 
@@ -243,8 +246,8 @@ const Hero8 = () => {
               <img className="object-cover object-center  mx-auto rounded-lg" src="https://themes.webdevia.com/petroleum-gas/wp-content/uploads/2016/01/icon9.jpg" alt="avatar" />
 
               <div className="mt-2">
-                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">We Care About Envirement</h3>
-                <span className="mt-1  text-gray-600 dark:text-gray-300">There is many variantions of passages of Lerem ipsum available</span>
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200">We Care About Environment</h3>
+                <span className="mt-1  text-gray-600 dark:text-gray-300">By guidance, policies, and practices enforced in order to ensure that the surrounding environment is free from hazards</span>
               </div>
             </div>
           </div>
